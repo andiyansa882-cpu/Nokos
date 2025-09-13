@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peringatan Keamanan!</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        .warning-container {
+            border: 3px solid red;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #222;
+        }
+        h1 {
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+        .countdown {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .payment-info {
+            background-color: #300;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .disclaimer {
+            color: yellow;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        .blink {
+            animation: blink 1s steps(1, end) infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-container">
+        <h1 class="blink">PERINGATAN! RANSOMWARE BY FANZZX OFFICIAL</h1>
+        <p>Komputer Anda telah dikunci oleh Ransomware BY FANZZX OFFICIAL!</p>
+        <p>Semua file Anda telah dienkripsi dengan algoritma AES-256 dan RSA-2048.</p>
+        
+        <div class="countdown">
+            Waktu tersisa untuk pembayaran: <span id="timer">24:00:00</span>
+        </div>
+        
+        <div class="payment-info">
+            <h2>Untuk membuka kunci komputer Anda, transfer tebusan sebesar Rp 1.000.000,-</h2>
+            <p>Nomor Tujuan: 083829926817</p>
+            <p>Atas Nama: KARLINA</p>
+            <p>Setelah transfer, kirim bukti ke email: fanzzx.official@example.com</p>
+        </div>
+        
+        <p>JANGAN matikan atau restart komputer Anda! Hal ini dapat menyebabkan kehilangan data permanen!</p>
+        
+        <div class="disclaimer">
+            <p>INI ADALAH SIMULASI PRANK SEMATA! Ini bukan ransomware sungguhan dan tidak membahayakan komputer Anda.</p>
+            <p>Tekan tombol ESC atau klik link di bawah untuk keluar dari halaman ini.</p>
+            <p><a href="#" onclick="closeWindow()" style="color: white;">Klik di sini untuk keluar</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Timer countdown
+        function startTimer(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+                
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+            const twentyFourHours = 24 * 60 * 60;
+            const display = document.querySelector('#timer');
+            startTimer(twentyFourHours, display);
+        };
+        
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeWindow();
+            }
+        });
+        
+        function closeWindow() {
+            // Ask for confirmation before closing
+            if (confirm("Anda yakin ingin keluar dari simulasi prank ini?")) {
+                window.close();
+            }
+        }
+        
+        // Prevent right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert("Akses ditolak oleh sistem!");
+        });
+    </script>
+</body>
+</html>
